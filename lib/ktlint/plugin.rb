@@ -50,7 +50,7 @@ module Danger
         result['errors'].each {|error|
           file = "#{result['file']}#L#{error['line']}"
           message = "#{github.html_link(file)}: #{error['message']}"
-          fail(message)
+          warn(message)
         }
       }
     end
@@ -61,7 +61,7 @@ module Danger
           file = result['file']
           message = error['message']
           line = error['line']
-          fail(message, file: result['file'], line: line)
+          warn(message, file: result['file'], line: line)
         end
       end
     end
